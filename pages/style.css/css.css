@@ -1,0 +1,100 @@
+body
+{
+    text-align: center;
+}
+a
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-decoration-line: none;
+    font-size: 30px;
+   
+}
+/* change */
+#div2{
+    width: 22%;
+    height: 190px;    
+    margin-left: 2.2%;
+    margin-top: 0.5%;
+    float: left;
+}
+/* change */
+#div1{
+   width: 14%;
+   float: left;
+   margin-left: 0.8%;
+   margin-top: 0.3%;
+}
+/* change */
+img
+{
+   width: 100%;
+  
+}
+/* change */
+article{
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background-color: rgb(221, 236, 226);
+   height: 83vh;
+}
+footer{
+    background-color: black;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 1%;
+}
+
+h1{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+header{
+    background-color: rgb(80, 177, 164);
+    padding:1.5%;
+}
+/* change */
+#level{
+    margin-top: 7%;
+    background-color: rgb(119, 174, 156);
+    border: rgb(64, 7, 7) 3px solid;
+    border-radius: 20%;
+    width: 100px;
+    height: 60px;
+    margin-left:  45%;
+    padding: 1%;
+    float: left;
+}
+/* change */
+#level:hover{
+    opacity: 0.7;
+    box-shadow: 9px 9px 5px black;
+}
+/* change */
+#container{
+   height: 92%;
+   width: 30%;
+  
+   margin-left: 35%;
+   padding-top: 2%;
+}
+/* change */
+#container2{
+    height: 92%;
+    width: 34%;
+    padding-top: 0.5%;
+    padding-left: 33%;
+   
+}
+/* change */
+#frm1{
+    padding-top: 10%;
+}
+/* change */
+label{
+    font-size: 150%;
+}
+#changeA{
+    color: black;
+    margin-left: 90%;
+    margin-top: 10%; 
+}

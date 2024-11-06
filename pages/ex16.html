@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>home page</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+    <header><h1>Memory Game!</h1></header>
+   
+<article>
+    <div>
+     
+        <form action="instruction .html" id="frm1" onsubmit="v()">
+            Username: <br>
+            <input type="text" id="name" name="name" >
+            <br>
+            Password:
+            <br>
+            <input type="password" id="pass" name="pass" minlength="8" maxlength="8"> <br>
+            <input type="submit" value="Login"> <br>
+            Remember me <input type="checkbox">
+        </form>
+    </div>
+</article>
+<footer>good luck in the game</footer>
+
+<script>
+    
+    function cancelV() {
+            document.getElementById('frm1').noValidate = false;}
+     function v() {
+            if (document.getElementById('name').value == "") {
+                alert("enter username");
+                document.getElementById('name').focus();
+              
+            }
+            if (document.getElementById('pass').value == "") {
+                alert("enter password");
+                document.getElementById('pass').focus();
+            }
+        }
+
+
+
+     localStorage.setItem
+
+</script>
+</body>
+</html>

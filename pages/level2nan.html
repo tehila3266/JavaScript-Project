@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Memory game</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+    <header></header>
+    <article>
+        <div id="time">300</div>
+
+        <div id="warpper"></div>
+        <div id="container">
+            <div id="div1"><img src="/background-game.png" alt="" id="0" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="1" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="2" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="3" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="4" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="5" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="6" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="7" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="8" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="9" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="10" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="11" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="12" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="13" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="14" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="15" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="16" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="17" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="18" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="19" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="20" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="21" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="22" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="23" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="24" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="25" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="26" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="27" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="28" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="29" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="30" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="31" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="32" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="33" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="34" class="1"></div>
+            <div id="div1"><img src="/background-game.png" alt="" id="35" class="1"></div>
+        </div>
+
+        <a href="../pages/level.html" id="changeA">change level</a>
+    </article>
+    <h2 id="amountofwin"></h2>
+    <h2 id="amountcouple"></h2>
+    <script> 
+        let arrayImg = ['8.jpeg', '31.jpg', '32.jpg', '33.jpg', '45.jpg', '35.jpg', '41.jpg', '48.jpg', '49.jpg', '25.jpg', '16.jpeg', '11.jpeg', '15.jpeg', '16.jpeg', '38.jpg', '39.jpg', '29.jpg', '30.jpg'];
+        let array = document.querySelectorAll("img")
+        let cnt = 0;  //מונה את כמות הלחיצות מ-0 עד 2
+        let tring = 0;  //מונה את כמות הלחיצות הכללית
+        let couples = 0;  //מונה את כמות הזוגות שנמצאו עי המשתמש
+        let timer = 0;  //מונה את מספר השניות עד לסגירת הקלפים אם לא זהים
+        let first = "";
+        let idFirst = 0;
+        let second = "";
+        let idSecond = 0;
+
+
+
+        let tempArr = [...arrayImg]; //עותק של המערך הראשון
+        let randomArr = [];//מערך שמכיל תמונות מרונדמות
+        let countArr = [];  //מערך מניה
+
+
+        let minuts = 3;
+
+
+        setInterval(changeTime, 1000)
+
+        function changeTime()
+         {
+            if (minuts > 0) 
+            {
+                document.querySelector("#time").innerHTML = minuts - 1
+                minuts--;
+            }
+           else if (minuts == 0)
+            {
+
+                finish()
+            }
+
+
+        }
+        for (let i = 0; i < array.length; i++)
+        {
+            array[i].addEventListener("click", turnaround)
+
+        }
+
+
+        // רנדום תמונות
+        for (let j = 0; j < 18; j++) {
+            countArr[j] = 0;
+        }
+        let index = 0;
+        while (index < 36)          //אם רוצים לרנדם תמונות למשל 30 ויש לנו רק 16 קלפים הוא יכול לרנדם קלף מסוים רק פעם אחת וזהו מה עושים?
+        {
+            let x = Math.floor(Math.random() * arrayImg.length);//רנדום מספר
+            if (countArr[x] < 2) {
+                randomArr[index] = arrayImg[x]
+                countArr[x]++;
+                index++;
+            }
+        }
+
+        function turnaround() {
+
+            let e = event.target.id
+            // console.log("fdg"+tempArr[e])
+            cnt++;  //סופר כמה קלפים פתוחים כעת
+            // let y=document.getElementById(e).src;
+
+            if (cnt == 1)
+             {
+
+
+                document.getElementById(e).src = "../images/" + randomArr[e]    //לשנות לרנדום
+
+
+
+                first = document.getElementById(e).src  //שמירת התמונה הראשונה שנבחרה במשתנה
+
+
+                idFirst = e
+            }
+            else if (cnt == 2) {
+                document.getElementById(e).src = "../images/" + randomArr[e]    //לשנות לרנדום
+                second = document.getElementById(e).src   //שמירת התמונה השניה שנבחרה במשתנה
+                idSecond = e
+                check()
+
+            }
+
+
+
+        }
+
+        function check() {
+            cnt = 0;
+            tring++;
+            document.querySelector('#amountofwin').innerHTML = tring;  //מציג על המסך כמות לחיצות
+            if (first == second && idFirst != idSecond)  //אם התמונות זהות מקדם את כמות הזוגות שנמצאו
+            {
+                
+                couples++;
+                if (couples == arrayImg.length )
+               {
+                    finish()
+                }
+
+            }
+            else {
+
+                timer = setTimeout(turndown, 2000);
+
+            }
+            document.querySelector('#amountcouple').innerHTML = couples;
+        }
+
+        function turndown() {
+            document.getElementById(idFirst).src = "../images/background-game.png"
+            document.getElementById(idSecond).src = "../images/background-game.png"
+        }
+
+        // function finish() {
+        //     document.querySelector('#amountofwin').innerHTML = tring
+        //     alert(`${tring} כמות הלחיצות שלך היא`)
+        // }
+        function finish() {
+            document.querySelector('#amountofwin').innerHTML = tring;
+            //alert(  `${tring} כמות הלחיצות שלך היא`)
+            minuts = 0;
+
+            window.open("../pages/finish.html")
+            minuts = 120;
+        }
+    </script>
+</body>
+
+</html>
